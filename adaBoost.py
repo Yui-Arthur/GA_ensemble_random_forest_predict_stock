@@ -173,7 +173,7 @@ def adaBoost_validate (best_model ,drop_columns , val_data ,val_data_label , val
     
     return pd.DataFrame(pred_label, columns = ['return'])
 
-def get_best_model(best_chromosome ,train_data , train_label):
+def get_best_model(best_chromosome ,train_data , train_label , train_year, save_chromosome):
 
     adaBooest_n_estimators , decision_tree_argument  , drop_columns = adaBoost_decode(best_chromosome)
     regressor = AdaBoostRegressor(
@@ -186,10 +186,23 @@ def get_best_model(best_chromosome ,train_data , train_label):
     print(decision_tree_argument)
     print(drop_columns)
 
+    if save_chromosome:
+        save_best_chromosome(best_chromosome , train_year)
+
     return regressor , drop_columns
 
 def get_DNA_length():
     return 36
 
+def save_best_chromosome(best_chromosome , train_year):
+    
+    adaBooest_n_estimators , decision_tree_argument  , drop_columns = adaBoost_decode(best_chromosome)
+
+    with open(f'abaBoost_Best_Chromosome/T{train_year}V{10-train_year}.txt' , 'w' ,encoding="utf8") as f:
+        f.write(best_chromosome+"\n")
+        f.write(f"adaBooest_n_estimators {adaBooest_n_estimators}\n" )
+        f.write(str(decision_tree_argument)+"\n")
+        f.write(str(drop_columns)+"\n")
+    
 
 

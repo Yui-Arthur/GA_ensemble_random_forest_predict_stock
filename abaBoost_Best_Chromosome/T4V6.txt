@@ -1,0 +1,4 @@
+011110110000000001011110000100110110
+adaBooest_n_estimators 100
+{'max_depth': 5, 'max_features': 0.4645669291338583, 'criterion': 'absolute_error', 'min_samples_leaf': 0.001, 'min_samples_split': 0.03937007874015748, 'random_state': 0}
+['股價淨值比', '股價營收比', 'M淨值報酬率─稅後', '資產報酬率ROA', '利潤邊際NPM', '負債/淨值比', 'M存貨週轉率 (次)', 'M稅後淨利成長率']

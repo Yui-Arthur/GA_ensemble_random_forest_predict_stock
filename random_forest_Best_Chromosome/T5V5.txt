@@ -1,0 +1,3 @@
+111001110100000111111101111110000011010
+random_forest_argument {'n_estimators': 88, 'max_depth': 23, 'max_features': 0.007874015748031496, 'max_samples': 0.4931875, 'oob_score': True, 'n_jobs': -1, 'random_state': 0}
+['資產報酬率ROA', '營業利益率OPM', '利潤邊際NPM', '負債/淨值比', 'M流動比率', 'M應收帳款週轉次', 'M稅後淨利成長率']

@@ -168,16 +168,29 @@ def random_forest_validate (best_model ,drop_columns , val_data ,val_data_label 
     
     return pd.DataFrame(pred_label, columns = ['return'])
 
-def get_best_model(best_chromosome ,train_data , train_label):
+def get_best_model(best_chromosome ,train_data , train_label , train_year , save_chromosome):
 
     random_forest_argument , drop_columns  =  random_forest_decode(best_chromosome)
     regressor = RandomForestRegressor( **random_forest_argument)
     train_data = train_data.drop(columns=drop_columns)
     regressor.fit(train_data , train_label)
+
     print(random_forest_argument)
     print(drop_columns)
 
+    if save_chromosome:
+        save_best_chromosome(best_chromosome , train_year)
+
     return regressor , drop_columns
+
+def save_best_chromosome(best_chromosome , train_year):
+    
+    random_forest_argument , drop_columns  =  random_forest_decode(best_chromosome)
+
+    with open(f'random_forest_Best_Chromosome/T{train_year}V{10-train_year}.txt' , 'w' ,encoding="utf8") as f:
+        f.write(best_chromosome+"\n")
+        f.write(f"random_forest_argument {random_forest_argument}\n" )
+        f.write(str(drop_columns)+"\n")
 
 def get_DNA_length():
     return 39

@@ -1,0 +1,3 @@
+010101111000111011111100111011100111010
+random_forest_argument {'n_estimators': 52, 'max_depth': 24, 'max_features': 0.11023622047244094, 'max_samples': 0.4931875, 'oob_score': True, 'n_jobs': -1, 'random_state': 0}
+['市值(百萬元)', '股價營收比', '利潤邊際NPM', '負債/淨值比', 'M應收帳款週轉次', 'M稅後淨利成長率']
